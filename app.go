@@ -15,7 +15,7 @@ func contactPage(w http.ResponseWriter, r *http.Request) {
 
 func handleRequest() {
 	http.HandleFunc("/", homePage)
-	http.HandleFunc("/contacts", contactPage)
+	http.HandleFunc("/contacts/", contactPage)
 	http.ListenAndServe(":1111", nil)
 }
 
