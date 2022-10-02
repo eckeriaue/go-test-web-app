@@ -6,12 +6,19 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "second test")
+}
 
-	fmt.Fprintf(w, "hello wrld")
+func contactPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "contact page")
+}
 
+func handleRequest() {
+	http.HandleFunc("/", homePage)
+	http.HandleFunc("/contacts", contactPage)
+	http.ListenAndServe(":1111", nil)
 }
 
 func main() {
-	http.HandleFunc("/", homePage)
-	http.ListenAndServe(":1111", nil)
+	handleRequest()
 }
